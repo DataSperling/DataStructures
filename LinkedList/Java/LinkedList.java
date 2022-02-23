@@ -1,1 +1,5 @@
-public class LinkedList {}
+public class LinkedList {
+
+    
+    
+ }
