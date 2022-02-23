@@ -1,3 +1,9 @@
+/**
+* Generic Node class for LinkedList (singly linked list)
+*
+* @author DatSperling
+* @version 1.1
+*/
 
 public class Node<T> {
 
@@ -21,7 +27,7 @@ public class Node<T> {
     * @param data: the data to be added to the node
     */    
     Node(T data) {
-        this(data, nll)
+        this(data, null);
     }
     
     /*
@@ -29,8 +35,25 @@ public class Node<T> {
     *
     * @return: the data to return
     */
+    T getData() {
+        return data;
+    }
     
-
-
-
+    /*
+    * Getter for next node
+    *
+    * @return: the next node in the list
+    */
+    Node<T> getNext() {
+        return next;
+    }
+    
+    /*
+    * Setter for next reference
+    *
+    * @param next: the next reference to be set
+    */
+    void setNext(Node<T> next) {
+        this.next = next;    
+    }
 }
