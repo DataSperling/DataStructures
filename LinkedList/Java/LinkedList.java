@@ -24,8 +24,7 @@ public class LinkedList<T> {
         }
         Node<T> newNode = new Node<T>(data);
         newNode.setNext(head);
-        head = newNode;        
-        
+        head = newNode;                
     }
     
     /*
@@ -63,8 +62,12 @@ public class LinkedList<T> {
         
         while (current.getNext() != null) {
             output += current.getData();
-            
-        return null;
+            if (current.getNext() != null) {
+                output += ", ";
+            }
+            current = current.getNext();
+        }
+        return "Linked List: " + output;
     }
     
         

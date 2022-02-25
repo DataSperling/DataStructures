@@ -4,6 +4,7 @@ public class Main {
     
         LinkedList<String> webHistory = new LinkedList<>();
         
+        // instantiate head
         webHistory.setHead(new Node<>("www.google.com") );
         
         // Instantiate 5 nodes
@@ -12,16 +13,20 @@ public class Main {
         Node<String> node4 = new Node<>("www.reddit.com");
         Node<String> node5 = new Node<>("www.stackexhange.com");
         Node<String> node6 = new Node<>("www.bitbucket.org");
-        
-        
-        // assign next references
+                
+        // assign next references to build list
         webHistory.getHead().setNext(node2);
         node2.setNext(node3);
         node3.setNext(node4);
         node4.setNext(node5);
         node5.setNext(node6);
         
-  
+        //output list
+        System.out.println( webHistory.toString() );
+        
+        webHistory.addToFront("www.myspace.com");
+        
+        System.out.println( webHistory.toString() );
     
     }
 }
