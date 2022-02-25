@@ -1,1 +1,1 @@
-public class LinkedList {}
+public class ArrayList {}
