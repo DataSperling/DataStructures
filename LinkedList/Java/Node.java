@@ -11,7 +11,7 @@ public class Node<T> {
     private Node<T> next;
     
     /*
-    * Constructs a new node with given data AND nex reference
+    * Constructs a new node with given data AND next reference
     *
     * @param data: the data to be stored in the node
     * @param next: reference to next node in list
