@@ -10,28 +10,8 @@ public class LinkedList<T> {
 
     private Node<T> head;
     private Node<T> tail;
-    private int size;
-    
-    
-    /*
-    * Getter for head of LinkedList
-    *
-    * @return: pointer to head of the LinkedList
-//    */
-//    public Node<T> getHead() {
-//        return head;
-//    }
-    
-    
-    /*
-    * Setter for head of LinkedList
-    *
-    * @param head: the new LinkedList head
-    */
-//    public void setHead(Node<T> head) {
-//        this.head = head;
-//    }
-    
+    private int size; 
+        
     /*
     * Getter for size of LinkedList
     *
@@ -45,7 +25,7 @@ public class LinkedList<T> {
     /*
     * Adds node to front in O(1) time
     *
-    * @param data: data to add to head of list
+    * @param: data: data to add to head of list
     * @throws: java.lang.IllegalArgumentException if data is null
     */
     public void addToFront(T data) {
@@ -76,16 +56,40 @@ public class LinkedList<T> {
         if (data == null) {
             throw new IllegalArgumentException("Error: data can't be null");
         }
-        Node<T> current = head;
-        while (current.getNext() != null) {
-            current = current.getNext();            
-        }
-        current.setNext(new Node<T>(data));
-        size += 1;
+        Node<T> newNode = new Node<>(data);
+        
+        if (size == 0) {
+            head = newNode;
+            tail = head;
+        } else {
+            Node<T> current = head;
+            while (current.getNext() != null) {
+                current = current.getNext();            
+            }
+            current.setNext(new Node<T>(data));
+        }        
+        size ++;
     }
     
+    /*
+    * Removes first node in O(1) time
+    *
+    * @return: the data from the node removed
+    * @throws: java.util.NoSuchElementException
+    */
     public T removeFromFront() {
-        return head.getData();
+        if (size == 0) {
+            throw new java.util.NoSuchElementException("Error: list is empty");
+        }
+        T data = head.getData();
+        
+        if (size == 1) {
+            head = tail = null;
+        } else {
+            head = head.getNext();
+        }
+        size --;
+        return data;
     }
     
     /*
@@ -109,6 +113,14 @@ public class LinkedList<T> {
             current = current.getNext();
         }
         return "Linked List comprises " + size + " node(s): " + output;
+    }
+    
+    public Node<T> getHead() {
+        return head;
+    }
+    
+    public Node<T> getTail() {
+        return tail;
     }
     
         

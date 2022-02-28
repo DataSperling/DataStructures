@@ -4,10 +4,24 @@ public class Main {
     
         LinkedList<String> webHistory = new LinkedList<>();
         
-        webHistory.addToFront("www.google.com");
-        webHistory.addToFront("www.github.com");
+        webHistory.addToBack("www.google.com");
+        
+        //System.out.println( webHistory.toString() );
+        
+        webHistory.addToBack("www.github.com");
+        
+        //System.out.println( webHistory.toString() );
+        
+        webHistory.addToBack("www.github.com");
         
         
         System.out.println( webHistory.toString() );
-        }
+        
+        //webHistory.removeFromFront();
+        
+        System.out.println( webHistory.toString() );
+        
+        System.out.println( "head: " + webHistory.getHead().getData() );
+        System.out.println( "tail: " + webHistory.getTail().getData() );
+    }
 }
