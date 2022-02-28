@@ -4,8 +4,9 @@ import java.util.NoSuchElementException;
 * Generic LinkedList (singly linked list) implementation with external node class
 *
 * @author DatSperling
-* @version 1.1
+* @version 1.2
 */
+
 public class LinkedList<T> {
 
     private Node<T> head;
@@ -126,8 +127,7 @@ public class LinkedList<T> {
         } else {
             Node<T> current = head;
             while (current.getNext().getNext() != null) {
-                current = current.getNext();
-                
+                current = current.getNext();                
             }
             current.setNext(null);
             tail =current;
