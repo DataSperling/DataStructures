@@ -17,10 +17,10 @@ public class LinkedList<T> {
     * Getter for head of LinkedList
     *
     * @return: pointer to head of the LinkedList
-    */
-    public Node<T> getHead() {
-        return head;
-    }
+//    */
+//    public Node<T> getHead() {
+//        return head;
+//    }
     
     
     /*
@@ -28,9 +28,9 @@ public class LinkedList<T> {
     *
     * @param head: the new LinkedList head
     */
-    public void setHead(Node<T> head) {
-        this.head = head;
-    }
+//    public void setHead(Node<T> head) {
+//        this.head = head;
+//    }
     
     /*
     * Getter for size of LinkedList
@@ -108,7 +108,7 @@ public class LinkedList<T> {
             }
             current = current.getNext();
         }
-        return "Linked List has " + size + " node(s): " + output;
+        return "Linked List comprises " + size + " node(s): " + output;
     }
     
         
