@@ -6,18 +6,25 @@ public class Main {
         
         webHistory.addToBack("www.google.com");
         
-        //System.out.println( webHistory.toString() );
-        
-        webHistory.addToBack("www.github.com");
         
         //System.out.println( webHistory.toString() );
         
         webHistory.addToBack("www.github.com");
+       
         
+        //System.out.println( webHistory.toString() );
+        
+        webHistory.addToBack("www.stackoverflow.com");
+        
+        
+        
+        //System.out.println( webHistory.toString() );
+        
+        //webHistory.removeFromFront();
         
         System.out.println( webHistory.toString() );
         
-        //webHistory.removeFromFront();
+        webHistory.removeFromBack();
         
         System.out.println( webHistory.toString() );
         

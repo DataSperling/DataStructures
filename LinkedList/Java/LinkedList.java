@@ -21,6 +21,24 @@ public class LinkedList<T> {
         return this.size;
     }
     
+    /*
+    * Getter for head of LinkedList
+    *
+    * @return: the head of LinkedList
+    */ 
+    public Node<T> getHead() {
+        return head;
+    }
+    
+    /*
+    * Getter for tail of LinkedList
+    *
+    * @ return: the tail of LinkedList
+    */
+    public Node<T> getTail() {
+        return tail;
+    }
+    
     
     /*
     * Adds node to front in O(1) time
@@ -40,7 +58,6 @@ public class LinkedList<T> {
         } else {
             newNode.setNext(head);
             head = newNode;
-            tail = newNode;
         }
         size ++;                            
     }
@@ -66,7 +83,8 @@ public class LinkedList<T> {
             while (current.getNext() != null) {
                 current = current.getNext();            
             }
-            current.setNext(new Node<T>(data));
+            current.setNext(newNode);
+            tail = newNode;
         }        
         size ++;
     }
@@ -75,7 +93,7 @@ public class LinkedList<T> {
     * Removes first node in O(1) time
     *
     * @return: the data from the node removed
-    * @throws: java.util.NoSuchElementException
+    * @throws: java.util.NoSuchElementException for empty list
     */
     public T removeFromFront() {
         if (size == 0) {
@@ -93,15 +111,37 @@ public class LinkedList<T> {
     }
     
     /*
-    * Removes from front in O(1) time
+    * Removes last node in O(n) time
     *
-    *
-    *
+    * @return: the data from the node removed
+    * @throws: java.util.NoSuchElementException for empty list
     */
     public T removeFromBack() {
-        return tail.getData();
+        if (size == 0) {
+            throw new NoSuchElementException("Error: list is empty");
+        }
+        T data = tail.getData();
+        if (size == 1) {
+            head = tail = null;
+        } else {
+            Node<T> current = head;
+            while (current.getNext().getNext() != null) {
+                current = current.getNext();
+                
+            }
+            current.setNext(null);
+            tail =current;
+        }
+        size--;  
+        return data;
     }
     
+    
+    /*
+    * Returns string representation of list indicating size
+    *
+    * @ return: string representation of list
+    */
     public String toString() {
         String output = "";
         Node<T> current = head;        
@@ -114,20 +154,4 @@ public class LinkedList<T> {
         }
         return "Linked List comprises " + size + " node(s): " + output;
     }
-    
-    public Node<T> getHead() {
-        return head;
-    }
-    
-    public Node<T> getTail() {
-        return tail;
-    }
-    
-        
-       
-    
-    
-
-    
-    
  }
