@@ -77,9 +77,8 @@ public class LinkedList<T> {
     public void addBefore(T data, T newData) {
         if (newData == null) {
             throw new IllegalArgumentException("Error: data can't be null");
-        }        
-           
-        if (size == 0 || size == 1 || head.getData() == data) {
+        }           
+        if (size == 0 || head.getData() == data) {
             addToFront(newData);
         } else {
             Node<T> current = head;
@@ -147,7 +146,12 @@ public class LinkedList<T> {
         return data;
     }
     
-    public void addAfter(Node<T> node, T data) {}
+    public void addAfter(Node<T> node, T data) {
+        if (size == 0) {
+            throw new java.util.NoSuchElementException("Error: list is empty");
+        }
+        
+    }
     
     /*
     * Removes last node in O(n) time
@@ -186,7 +190,7 @@ public class LinkedList<T> {
         while (current != null) {
             output += current.getData();
             if (current.getNext() != null) {
-                output += ", ";
+                output += " -> ";
             }
             current = current.getNext();
         }
