@@ -38,7 +38,7 @@ public class Main {
 //        system.out.println( "head: " + webhistory.gethead().getdata() );
 //        system.out.println( "tail: " + webhistory.gettail().getdata() );
 
-        webhistory.addBefore( "www.stackoverflow.com", "fish");
+        webhistory.addBefore( "www.gggstackoverflow.com", "www.superuser.com");
         
         System.out.println( webhistory.toString() );
 

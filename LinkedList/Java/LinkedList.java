@@ -79,6 +79,7 @@ public class LinkedList<T> {
            
         if (size == 0 || size == 1) {
             addToFront(data);
+            size++;
         } else {
             Node<T> current = head;
             while (current.getNext() != null) {
@@ -86,9 +87,13 @@ public class LinkedList<T> {
                     Node<T> newNode = new Node<>(newData);
                     newNode.setNext(current.getNext());
                     current.setNext(newNode);
+                    size++;
                     return;
                 }
             current = current.getNext();
+            }
+            if (current.getNext() == null) {
+                throw new NoSuchElementException("Error: data not found");
             }            
         }
     }
