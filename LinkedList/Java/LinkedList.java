@@ -4,7 +4,7 @@ import java.util.NoSuchElementException;
 * Generic LinkedList (singly linked list) implementation with external node class
 * addAtIndex() is not included due to the inherent inefficiency of this method.
 * @author DatSperling
-* @version 1.2
+* @version 1.3
 */
 
 public class LinkedList<T> {
