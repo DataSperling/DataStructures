@@ -9,33 +9,40 @@ public class Main {
 
     public static void main(String[] args) {
     
-        LinkedList<String> webHistory = new LinkedList<>();
+        LinkedList<String> webhistory = new LinkedList<>();
         
-        webHistory.addToBack("www.google.com");
+        webhistory.addToBack("www.google.com");
         
         
-        //System.out.println( webHistory.toString() );
+        //system.out.println( webhistory.tostring() );
         
-        webHistory.addToBack("www.github.com");
+        webhistory.addToBack("www.github.com");
        
         
-        //System.out.println( webHistory.toString() );
+        //system.out.println( webhistory.tostring() );
         
-        webHistory.addToBack("www.stackoverflow.com");
+        webhistory.addToBack("www.stackoverflow.com");
         
         
         
-        //System.out.println( webHistory.toString() );
+        //system.out.println( webhistory.tostring() );
         
-        //webHistory.removeFromFront();
+        //webhistory.removefromfront();
         
-        System.out.println( webHistory.toString() );
+        System.out.println( webhistory.toString() );
         
-        webHistory.removeFromBack();
+//        webhistory.removefromback();
+//        
+//        system.out.println( webhistory.tostring() );
+//        
+//        system.out.println( "head: " + webhistory.gethead().getdata() );
+//        system.out.println( "tail: " + webhistory.gettail().getdata() );
+
+        webhistory.addBefore( "www.stackoverflow.com", "fish");
         
-        System.out.println( webHistory.toString() );
-        
-        System.out.println( "head: " + webHistory.getHead().getData() );
-        System.out.println( "tail: " + webHistory.getTail().getData() );
+        System.out.println( webhistory.toString() );
+
+
+
     }
 }

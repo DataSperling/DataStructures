@@ -63,6 +63,36 @@ public class LinkedList<T> {
         size ++;                            
     }
     
+    /*
+    * Adds data before given node in:
+    * O(1) best case, O(n) worst case
+    * 
+    * @param node: node, before which we want to insert the new node
+    * @param data: data to be inserted
+    * @throws: java.util.NoSuchElementException if match not found
+    * @throws: java.util.IllegalArgumentException if data is null
+    */
+    public void addBefore(T data, T newData) {
+        if (newData == null) {
+            throw new IllegalArgumentException("Error: data can't be null");
+        }        
+           
+        if (size == 0 || size == 1) {
+            addToFront(data);
+        } else {
+            Node<T> current = head;
+            while (current.getNext() != null) {
+                if (current.getNext().getData() == data) {
+                    Node<T> newNode = new Node<>(newData);
+                    newNode.setNext(current.getNext());
+                    current.setNext(newNode);
+                    return;
+                }
+            current = current.getNext();
+            }            
+        }
+    }
+    
     
     /*
     * Adds node to back in O(n) time
@@ -110,6 +140,8 @@ public class LinkedList<T> {
         size --;
         return data;
     }
+    
+    public void addAfter(Node<T> node, T data) {}
     
     /*
     * Removes last node in O(n) time
