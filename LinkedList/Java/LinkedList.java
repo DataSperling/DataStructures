@@ -66,9 +66,11 @@ public class LinkedList<T> {
     /*
     * Adds data before given node in:
     * O(1) best case, O(n) worst case
+    * This method could be considered inefficient
+    * Consider using a different data structure if using regularly
     * 
-    * @param node: node, before which we want to insert the new node
-    * @param data: data to be inserted
+    * @param data: data, before which we want to insert the newData
+    * @param newData: data to be inserted
     * @throws: java.util.NoSuchElementException if match not found
     * @throws: java.util.IllegalArgumentException if data is null
     */
@@ -77,9 +79,8 @@ public class LinkedList<T> {
             throw new IllegalArgumentException("Error: data can't be null");
         }        
            
-        if (size == 0 || size == 1) {
-            addToFront(data);
-            size++;
+        if (size == 0 || size == 1 || head.getData() == data) {
+            addToFront(newData);
         } else {
             Node<T> current = head;
             while (current.getNext() != null) {
@@ -93,7 +94,7 @@ public class LinkedList<T> {
             current = current.getNext();
             }
             if (current.getNext() == null) {
-                throw new NoSuchElementException("Error: data not found");
+                throw new NoSuchElementException("Error: " + data + " not found");
             }            
         }
     }

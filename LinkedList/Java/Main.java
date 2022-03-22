@@ -9,40 +9,43 @@ public class Main {
 
     public static void main(String[] args) {
     
-        LinkedList<String> webhistory = new LinkedList<>();
+        LinkedList<String> webHistory = new LinkedList<>();
         
-        webhistory.addToBack("www.google.com");
-        
-        
-        //system.out.println( webhistory.tostring() );
-        
-        webhistory.addToBack("www.github.com");
+        webHistory.addToBack("www.github.com");
        
+        webHistory.addToBack("www.stackoverflow.com");
         
-        //system.out.println( webhistory.tostring() );
+        webHistory.addToBack("www.zollsoft.de");
         
-        webhistory.addToBack("www.stackoverflow.com");
+        System.out.println("\n");
+        System.out.println("Current LinkedList Structure is: ...");
+        System.out.println( webHistory.toString() );
+        System.out.println( "head: " + webHistory.getHead().getData() );
+        System.out.println( "tail: " + webHistory.getTail().getData() );
+        System.out.println("\n");        
         
+        webHistory.addBefore("www.zollsoft.de", "www.askubuntu.com");
         
-        
-        //system.out.println( webhistory.tostring() );
-        
-        //webhistory.removefromfront();
-        
-        System.out.println( webhistory.toString() );
-        
-//        webhistory.removefromback();
-//        
-//        system.out.println( webhistory.tostring() );
-//        
-//        system.out.println( "head: " + webhistory.gethead().getdata() );
-//        system.out.println( "tail: " + webhistory.gettail().getdata() );
+        System.out.println("\n");
+        System.out.println("Current LinkedList Structure is: ...");
+        System.out.println( webHistory.toString() );
+        System.out.println( "head: " + webHistory.getHead().getData() );
+        System.out.println( "tail: " + webHistory.getTail().getData() );
+        System.out.println("\n");
 
-        webhistory.addBefore( "www.gggstackoverflow.com", "www.superuser.com");
+        webHistory.addBefore( "www.stackoverflow.com", "www.superuser.com");
         
-        System.out.println( webhistory.toString() );
+        System.out.println("\n");
+        System.out.println("Current LinkedList Structure is: ...");
+        System.out.println( webHistory.toString() );
+        System.out.println( "head: " + webHistory.getHead().getData() );
+        System.out.println( "tail: " + webHistory.getTail().getData() );
+        System.out.println("\n");
 
 
 
     }
 }
+
+
+
