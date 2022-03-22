@@ -3,7 +3,7 @@ import java.util.NoSuchElementException;
 /**
 * Generic LinkedList (singly linked list) implementation with external node class
 * addAtIndex() is not included due to the inherent inefficiency of this method.
-* @author DatSperling
+* @author DataSperling
 * @version 1.3
 */
 

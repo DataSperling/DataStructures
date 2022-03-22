@@ -1,4 +1,9 @@
-
+/**
+* Tests for generic LinkedList (singly linked list) methods
+*
+* @author DataSperling
+* @version 1.3
+*/
 
 
 public class LinkedListTest {

@@ -1,8 +1,8 @@
 /**
 * Generic Node class for LinkedList (singly linked list)
 *
-* @author DatSperling
-* @version 1.2
+* @author DataSperling
+* @version 1.3
 */
 
 public class Node<T> {

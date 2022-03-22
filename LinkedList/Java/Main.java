@@ -1,8 +1,8 @@
 /**
-* Generic Node class for LinkedList (singly linked list)
-*
-* @author DatSperling
-* @version 1.2
+* Main driver class to demonstrate the use of a LinkedList with Strings representing
+* a web history stack
+* @author DataSperling
+* @version 1.3
 */
 
 public class Main {
