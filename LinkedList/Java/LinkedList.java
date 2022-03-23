@@ -202,6 +202,8 @@ public class LinkedList<T> {
         
         if (head.getData().equals(data) ) {
             removeFromFront();
+            tempData = head.getData();
+            return tempData;
         } else {        
             while (current.getNext() != null ) {
                 if (current.getNext().getData().equals(data) ) {
