@@ -66,8 +66,9 @@ public class LinkedList<T> {
     /*
     * Adds data before given node in:
     * O(1) best case, O(n) worst case
-    * This method could be considered inefficient
+    * *** THIS METHOD IS INEFFICIENT ***
     * Consider using a different data structure if using regularly
+    * Arrays and HashMaps are suitable for random node access.
     * 
     * @param data: data, before which we want to insert the newData
     * @param newData: data to be inserted
@@ -176,6 +177,45 @@ public class LinkedList<T> {
         }
         size--;  
         return data;
+    }
+    
+    
+    /*
+    * Removes data passed and returns data to the caller
+    * O(1) best case, O(n) worst case
+    *
+    * @return: the data from the node removed
+    * @throws: java.util.NoSuchElementException when data not found or if list is empty
+    * @throws: java.util.IllegalArgumentException if data is null
+    */
+    public T removeData(T data) {
+        
+        if (data == null) {
+            throw new IllegalArgumentException("Error: data can't be null");
+        }
+        if (size == 0) {
+            throw new NoSuchElementException("Error: list is empty");
+        }
+        
+        Node<T> current = head;
+        T tempData = null;
+        
+        if (head.getData().equals(data) ) {
+            removeFromFront();
+        } else {        
+            while (current.getNext() != null ) {
+                if (current.getNext().getData().equals(data) ) {
+                    tempData = current.getNext().getData();
+                    current.setNext(current.getNext().getNext() );
+                    size--;
+                }
+                current = current.getNext();
+            }
+        }
+        if (tempData == null) {
+            throw new NoSuchElementException("Error: " + data + " not found");
+        }
+        return tempData;
     }
     
     
