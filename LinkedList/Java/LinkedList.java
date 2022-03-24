@@ -183,6 +183,9 @@ public class LinkedList<T> {
     /*
     * Removes data passed and returns data to the caller
     * O(1) best case, O(n) worst case
+    * *** THIS METHOD IS INEFFICIENT ***
+    * Consider using a different data structure if using regularly
+    * Arrays and HashMaps are suitable for random node access.
     *
     * @return: the data from the node removed
     * @throws: java.util.NoSuchElementException when data not found or if list is empty
@@ -199,23 +202,35 @@ public class LinkedList<T> {
         
         Node<T> current = head;
         T tempData = null;
+        System.out.println("tail is: " + tail.getData() + " data is: " + data);
         
         if (head.getData().equals(data) ) {
-            removeFromFront();
             tempData = head.getData();
+            removeFromFront();
             return tempData;
+            
+        } else if ( tail.getData().equals(data) ) {
+            System.out.println("its the last one! ");
+            tempData = tail.getData();
+            removeFromBack();
+            return tempData;
+            
         } else {        
-            while (current.getNext() != null ) {
+            while (current != null && current.getNext() != null ) {
+            
+                System.out.println("current: " + current.getData() );
+                
                 if (current.getNext().getData().equals(data) ) {
                     tempData = current.getNext().getData();
                     current.setNext(current.getNext().getNext() );
                     size--;
+                    return tempData;
                 }
-                current = current.getNext();
-            }
+            current = current.getNext();   
+            }            
         }
         if (tempData == null) {
-            throw new NoSuchElementException("Error: " + data + " not found");
+            throw new NoSuchElementException("Error: \"" + data + "\" not found");
         }
         return tempData;
     }
