@@ -2,9 +2,12 @@ import java.util.NoSuchElementException;
 
 /**
 * Generic LinkedList (singly linked list) implementation with external node class
-* The methods; addBefore(T data, T newData) and addAfter(T data, T newData)
+* The methods; addBefore(T data, T newData), addAfter(T data, T newData) and 
+* removeData(T data) are inefficient (O(n) worst case). Arrays offer better performance
+* when searching by value and HashMaps offer better overall performance at the cost of
+* memory.
 * @author DataSperling
-* @version 1.3
+* @version 1.4
 */
 
 public class LinkedList<T> {
@@ -12,7 +15,8 @@ public class LinkedList<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size; 
-        
+    
+       
     /*
     * Getter for size of LinkedList
     *
@@ -22,6 +26,7 @@ public class LinkedList<T> {
         return this.size;
     }
     
+    
     /*
     * Getter for head of LinkedList
     *
@@ -30,6 +35,7 @@ public class LinkedList<T> {
     public Node<T> getHead() {
         return head;
     }
+    
     
     /*
     * Getter for tail of LinkedList
@@ -62,6 +68,7 @@ public class LinkedList<T> {
         }
         size ++;                            
     }
+    
     
     /*
     * Adds newData before given data in:
@@ -99,6 +106,7 @@ public class LinkedList<T> {
         }
     }
     
+    
     /*
     * Adds newData after given data in:
     * O(1) best case, O(n) worst case
@@ -132,6 +140,7 @@ public class LinkedList<T> {
                     newNode.setNext(current.getNext());
                     current.setNext(newNode);
                     size++;
+                    break;
                 }
             current = current.getNext();                    
             }
@@ -167,6 +176,7 @@ public class LinkedList<T> {
         }        
         size ++;
     }
+    
     
     /*
     * Removes first node in O(1) time

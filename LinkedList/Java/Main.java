@@ -3,7 +3,7 @@
 * a web history stack
 * 
 * @author DataSperling
-* @version 1.3
+* @version 1.4
 */
 
 public class Main {
@@ -24,6 +24,10 @@ public class Main {
         
         webHistory.addToBack("www.knime.de");
         
+        /*
+        * Requires at least one node as calls head.getData()
+        * will throw unhandled exception in empty list
+        */
         System.out.println("\n");
         System.out.println("Current LinkedList Structure is: ...");
         System.out.println( webHistory.toString() );
@@ -33,6 +37,10 @@ public class Main {
         
         webHistory.addBefore("www.zollsoft.de", "www.datascience.com");
         
+        /*
+        * Requires at least one node as calls head.getData()
+        * will throw unhandled exception in empty list
+        */
         System.out.println("\n");
         System.out.println("Current LinkedList Structure is: ...");
         System.out.println( webHistory.toString() );
@@ -42,6 +50,10 @@ public class Main {
 
         webHistory.addAfter( "www.stackoverflow.com", "www.superuser.com");
         
+        /*
+        * Requires at least one node as calls head.getData()
+        * will throw unhandled exception in empty list
+        */
         System.out.println("\n");
         System.out.println("Current LinkedList Structure is: ...");
         System.out.println( webHistory.toString() );
@@ -52,7 +64,11 @@ public class Main {
         System.out.println("removedToken: " + webHistory.removeData("www.stackoverflow.com"));
 
         webHistory.addAfter("www.knime.de", "www.ineos.no");
-       
+        
+        /*
+        * Requires at least one node as calls head.getData()
+        * will throw unhandled exception in empty list
+        */
         System.out.println("\n");
         System.out.println("Current LinkedList Structure is: ...");
         System.out.println( webHistory.toString() );

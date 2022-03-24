@@ -9,20 +9,23 @@
 public class LinkedListTest {
 
     @Test
-    public void test addToFront() {}
+    public void test addToFront(T data) {}
     
     @Test
-    public void test addBefore() {}
+    public void test addBefore(T data, T newData) {}
     
     @Test
-    public void test addToBack() {}
+    public void test addAfter(T data, T newData) {}
     
     @Test
-    public void test removeFromFront() {}
+    public void test addToBack(T data) {}
     
     @Test
-    public void test addAfter() {}
+    public void test removeFromFront() {}       
     
     @Test
     public void test removeFromBack() {}
+    
+    @Test
+    public void removeData(T data) {}
 }
