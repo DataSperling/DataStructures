@@ -49,8 +49,10 @@ public class Main {
 //        System.out.println( "tail: " + webHistory.getTail().getData() );
 //        System.out.println("\n");
 //        
-        System.out.println("returnedValue: " + webHistory.removeData("www.stagckoverflow.com"));
-        
+//        System.out.println("removedToken: " + webHistory.removeData("www.stackoverflow.com"));
+
+        webHistory.addAfter("www.knimhe.de", "www.ineos.no");
+       
         System.out.println("\n");
         System.out.println("Current LinkedList Structure is: ...");
         System.out.println( webHistory.toString() );

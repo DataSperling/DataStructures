@@ -64,7 +64,7 @@ public class LinkedList<T> {
     }
     
     /*
-    * Adds data before given node in:
+    * Adds newData before given data in:
     * O(1) best case, O(n) worst case
     * *** THIS METHOD IS INEFFICIENT ***
     * Consider using a different data structure if using regularly
@@ -72,7 +72,7 @@ public class LinkedList<T> {
     * 
     * @param data: data, before which we want to insert the newData
     * @param newData: data to be inserted
-    * @throws: java.util.NoSuchElementException if match not found
+    * @throws: java.util.NoSuchElementException if data not found
     * @throws: java.util.IllegalArgumentException if data is null
     */
     public void addBefore(T data, T newData) {
@@ -94,7 +94,7 @@ public class LinkedList<T> {
             current = current.getNext();
             }
             if (current.getNext() == null) {
-                throw new NoSuchElementException("Error: " + data + " not found");
+                throw new NoSuchElementException("Error: \"" + data + "\" not found");
             }            
         }
     }
@@ -147,12 +147,49 @@ public class LinkedList<T> {
         return data;
     }
     
-    public void addAfter(Node<T> node, T data) {
-        if (size == 0) {
-            throw new java.util.NoSuchElementException("Error: list is empty");
+    /*
+    * Adds newData after given data in:
+    * O(1) best case, O(n) worst case
+    * *** THIS METHOD IS INEFFICIENT ***
+    * Consider using a different data structure if using regularly
+    * Arrays and HashMaps are suitable for random node access.
+    * 
+    * @param data: data, before which we want to insert the newData
+    * @param newData: data to be inserted
+    * @throws: java.util.NoSuchElementException if data not found
+    * @throws: java.util.IllegalArgumentException if data is null
+    */
+    public void addAfter(T data, T newData) {
+        if (newData == null) {
+            throw new IllegalArgumentException("Error: data can't be null");
         }
         
+        Node<T> current = head;
+        Node<T> newNode = new Node<>(newData);
+        
+        if (size == 0) {
+            addToFront(newData);
+            size++;
+        } else if (tail.getData().equals(data) ) {
+            tail.setNext(newNode);
+            tail = newNode;
+            size++;
+        } else {            
+            while (current.getNext() != null) {
+                System.out.println(current.getData());
+                if (current.getData().equals(data)) {
+                    newNode.setNext(current.getNext());
+                    current.setNext(newNode);
+                    size++;
+                }
+            current = current.getNext();                    
+            }
+        }
+        if (current.getNext() == null) {
+            throw new NoSuchElementException("Error: \"" + data + "\" not found");
+        }        
     }
+    
     
     /*
     * Removes last node in O(n) time
@@ -202,24 +239,15 @@ public class LinkedList<T> {
         
         Node<T> current = head;
         T tempData = null;
-        System.out.println("tail is: " + tail.getData() + " data is: " + data);
         
         if (head.getData().equals(data) ) {
             tempData = head.getData();
             removeFromFront();
-            return tempData;
-            
         } else if ( tail.getData().equals(data) ) {
-            System.out.println("its the last one! ");
             tempData = tail.getData();
             removeFromBack();
-            return tempData;
-            
         } else {        
             while (current != null && current.getNext() != null ) {
-            
-                System.out.println("current: " + current.getData() );
-                
                 if (current.getNext().getData().equals(data) ) {
                     tempData = current.getNext().getData();
                     current.setNext(current.getNext().getNext() );
