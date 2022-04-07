@@ -12,15 +12,12 @@ import java.util.NoSuchElementException;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("When running SinglyLinkedListTests")
-class SinglyLinkedListNodeTest {
+class TestSinglyLinkedList {
 
     SinglyLinkedList<String> singlyLinkedList;
     TestInfo testInfo;
     TestReporter testReporter;
 
-    @BeforeAll
-    void beforeAll() { System.out.println("This needs to run before all");
-    }
 
     @BeforeEach
     void init(TestInfo testInfo, TestReporter testReporter) {
@@ -40,7 +37,7 @@ class SinglyLinkedListNodeTest {
     @Nested
     @DisplayName("SLLNode pointers")
     @Tag("node")
-    class nodeTest {
+    class testNode {
 
         @Test
         @DisplayName(" test empty node")
@@ -57,7 +54,7 @@ class SinglyLinkedListNodeTest {
     @Nested
     @DisplayName("addToFront()")
     @Tag("addToList")
-    class addToFrontTest {
+    class testAddToFront {
 
         @Test
         @DisplayName("When adding to FRONT of an empty SinglyLinkedList")
@@ -92,7 +89,7 @@ class SinglyLinkedListNodeTest {
     @Nested
     @DisplayName("addToBack()")
     @Tag("addToList")
-    class addToBackTest {
+    class testAddToBack {
 
         @Test
         @DisplayName("When adding to BACK of empty SLL")
@@ -174,7 +171,7 @@ class SinglyLinkedListNodeTest {
 
     /*
     * inner class to test addAfter()
-     */
+    */
     @Nested
     @DisplayName("addAfter()")
     @Tag("addToList")
@@ -235,10 +232,96 @@ class SinglyLinkedListNodeTest {
             assertEquals(singlyLinkedList.getTail().getData(), "www.trifacta.com");
             assertEquals(singlyLinkedList.getSize(), 5);
         }
-
-
-
     }
+
+    /*
+    * inner class to test removeFromFront()
+    */
+    @Nested
+    @DisplayName("removeFromFront()")
+    @Tag("removeFromList")
+    class testRemoveFromFront {
+
+        @Test
+        @DisplayName("When removingFromFront on empty list")
+        void testRemoveFromFrontEmpty() {
+
+        }
+
+        @Test
+        @DisplayName("When removingFromFront on list with one node ")
+        void testRemoveFromFrontSingleNode() {
+
+        }
+
+        @Test
+        @DisplayName("When removingFromFront on list with multiple nodes")
+        void testRemoveFromFrontMultipleNodes() {
+
+        }
+    }
+
+    /*
+    * inner class to test removeFromBack()
+    */
+    @Nested
+    @DisplayName("removeFromBack()")
+    @Tag("removeFromList")
+    class testRemoveFromBack {
+
+        @Test
+        @DisplayName("When removingFromBack on empty list")
+        void testRemoveFromBackEmpty() {
+
+        }
+
+        @Test
+        @DisplayName("When removingFromBack on list with one node")
+        void testRemoveFromBackSingleNode() {
+
+        }
+
+        @Test
+        @DisplayName("When removingFromBack on list with multiple nodes")
+        void testRemoveFromBackMultipleNodes() {
+
+        }
+    }
+
+    /*
+    * inner class to test removeData()
+    */
+    @Nested
+    @DisplayName("removeData()")
+    @Tag("removeFromList")
+    class testRemoveData {
+
+        @Test
+        @DisplayName("When removing data that's not present in SLL")
+        void testRemoveDataNotPresent() {
+
+        }
+
+        @Test
+        @DisplayName("When removing data that's in head node")
+        void testRemoveDataHeadNode() {
+
+        }
+
+        @Test
+        @DisplayName("When removing data that's in middle node")
+        void testRemoveDataInMiddleNode() {
+
+        }
+
+        @Test
+        @DisplayName("When removing data from tail node")
+        void testRemoveDataInTailNode() {
+
+        }
+    }
+
+
 
 }
 
