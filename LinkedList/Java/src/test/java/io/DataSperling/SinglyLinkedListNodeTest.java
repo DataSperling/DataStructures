@@ -132,7 +132,7 @@ class SinglyLinkedListNodeTest {
 
         @Test
         @DisplayName("When adding BEFORE on empty SLL")
-        void testAddBefore() {
+        void testAddBeforeEmpty() {
 
             assertThrows(IllegalArgumentException.class, () ->
                     singlyLinkedList.addBefore("www.askubuntu.com", null));
@@ -141,6 +141,12 @@ class SinglyLinkedListNodeTest {
                     singlyLinkedList.addBefore("www.askubuntu.com", "www.code.google.com"));
 
         assertEquals(singlyLinkedList.getSize(), 0);
+        }
+
+        @Test
+        @DisplayName("When adding BEFORE middle node")
+        void testAddBeforeMiddleNode() {
+
         }
 
         @Test
@@ -163,11 +169,76 @@ class SinglyLinkedListNodeTest {
             assertEquals(singlyLinkedList.getHead().getData(), "www.ibm.com");
             assertEquals(singlyLinkedList.getTail().getData(), "www.superuser.com");
             assertEquals(singlyLinkedList.getSize(), 7);
-
-
-
-
         }
     }
 
+    /*
+    * inner class to test addAfter()
+     */
+    @Nested
+    @DisplayName("addAfter()")
+    @Tag("addToList")
+    class testAddAfter {
+
+        @Test
+        @DisplayName("When adding AFTER on empty SLL")
+        void testAddAfterEmpty() {
+
+            assertThrows(IllegalArgumentException.class, () ->
+                    singlyLinkedList.addBefore("www.datacamp.com", null));
+
+            assertThrows(NoSuchElementException.class, () ->
+                    singlyLinkedList.addBefore("www.kaggle.com", "www.jetbrains.com"));
+
+            assertEquals(singlyLinkedList.getSize(), 0);
+        }
+
+        @Test
+        @DisplayName("When adding after MIDDLE node")
+        void testAddAfterMiddleNode() {
+            singlyLinkedList.addToBack("www.spring.com");
+            singlyLinkedList.addToBack("www.maven.org");
+            singlyLinkedList.addToBack("www.apache.org");
+            singlyLinkedList.addToBack("www.sparksql.com");
+            singlyLinkedList.addToBack("www.seaborn.com");
+            singlyLinkedList.addAfter("www.apache.org", "www.dplyr.com");
+
+            SinglyLinkedListNode current = singlyLinkedList.getHead();
+            while (current.getData() != "www.apache.org") {
+                current = current.getNext();
+            }
+
+            assertEquals(current.getNext().getData(), "www.dplyr.com");
+            assertEquals(singlyLinkedList.getHead().getData(), "www.spring.com");
+            assertEquals(singlyLinkedList.getTail().getData(), "www.seaborn.com");
+            assertEquals(singlyLinkedList.getSize(), 6);
+        }
+
+        @Test
+        @DisplayName("When adding AFTER last node")
+        void testAddAfterLastNode() {
+
+            singlyLinkedList.addToBack("www.dataflair.org");
+            singlyLinkedList.addToBack("www.datacampblog.com");
+            singlyLinkedList.addToBack("www.datascience.com");
+            singlyLinkedList.addToBack("www.databricks.com");
+            singlyLinkedList.addAfter("www.databricks.com", "www.trifacta.com");
+            System.out.println(singlyLinkedList.toString());
+
+            SinglyLinkedListNode current = singlyLinkedList.getHead();
+            while (current.getData() != "www.databricks.com") {
+                current = current.getNext();
+            }
+
+            assertEquals(current.getNext().getData(), "www.trifacta.com");
+            assertEquals(singlyLinkedList.getHead().getData(), "www.dataflair.org");
+            assertEquals(singlyLinkedList.getTail().getData(), "www.trifacta.com");
+            assertEquals(singlyLinkedList.getSize(), 5);
+        }
+
+
+
+    }
+
 }
+
